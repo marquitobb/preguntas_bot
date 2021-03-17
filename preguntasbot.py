@@ -6,12 +6,13 @@ from flask_marshmallow import Marshmallow
 
 server = Flask(__name__)
 
-server.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://uecggjtpkwsfmihb:NEAfFnSPdx2uvNLkFixJ@bsklleqdqzb2wttrf6lg-mysql.services.clever-cloud.com:3306/bsklleqdqzb2wttrf6lg'
+# aqui agregamos la url de la db que es de servidores clever-cloud
+server.config['SQLALCHEMY_DATABASE_URI']= os.environ.get("API_TOKEN")
 server.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
+# creamos el modelo que va a necesitar
 db = SQLAlchemy(server)
 ma = Marshmallow(server)
-
 
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -41,10 +42,11 @@ question_schema = QuestionSchema()
 questions_schema = QuestionSchema(many=True)
 
 # aqui importaremos el api token de telegram
-API_TOKEN = '1786450342:AAFaXx7Tv4aK-3H70-WX5UnGhq8BZk2xwGM'
+API_TOKEN = os.environ.get("API_TOKEN")
 
 bot = telebot.TeleBot(API_TOKEN)
 
+# ejecutamos mensajes por commandos
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.reply_to(message, "Bienvenido a este bot")
@@ -53,6 +55,7 @@ def send_welcome(message):
 def send_welcome(message):
     bot.reply_to(message, "que ondaaa")
 
+# aqui si mandamos un palabra igual a "Preguntame" va entrar aqui
 @bot.message_handler(regexp="Preguntame")
 def handle_message(message):
     q1 = db.session.query(Question).filter_by(status=0).first()
@@ -66,6 +69,7 @@ def handle_message(message):
     db.session.commit()
     bot.reply_to(message, q1.pregunta)
 
+# aqui recibe todas las palabras que llegan y evalua
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def echo_message(message):
     q = db.session.query(Question).filter_by(status="1").first()
