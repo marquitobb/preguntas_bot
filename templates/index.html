@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="text-center">Registra tus preguntas</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h3>Registra pregunta cerrada</h3>
+                <br>
+                <form action="/crear" method="post">
+                    <input type="hidden" name="cerrada" value="0" />
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">ingresa la pregunta</label>
+                        <input type="text" class="form-control" name="pregunta" id="exampleFormControlInput1" placeholder="¿Pregunta?">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">ingresa respuesta</label>
+                        <textarea class="form-control" name="ra" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Registra Pregunta</button>
+                </form>
+            </div>
+          </div>
+    </div>
+    <br>
+    <!-- <p class="text-center"><a href="/">terminar y salir</a></p> -->
+    <!-- <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h3>Registra pregunta opcion multiple</h3>
+                <br>
+                <form action="/crear" method="post">
+                    <input type="hidden" name="cerrada" value="1" />
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">ingresa la pregunta</label>
+                        <input type="text" class="form-control" name="pregunta" id="exampleFormControlInput1" placeholder="¿Pregunta?">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">ingresa respuesta a)</label>
+                        <textarea class="form-control" name="ra" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">ingresa respuesta b)</label>
+                        <textarea class="form-control" name="rb" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">ingresa respuesta c)</label>
+                        <textarea class="form-control" name="rc" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Registra Pregunta</button>
+                </form>
+            </div>
+          </div>
+    </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+</body>
+</html>
